@@ -1,7 +1,7 @@
 import type { LayoutLoad } from './$types'
 
 
-const load: LayoutLoad = async ({ data }) => {
+export const load: LayoutLoad = async ({ data }) => {
   let { gtmId, scheme, vw } = data
 
   if (!scheme) {
