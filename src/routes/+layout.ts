@@ -2,17 +2,14 @@ import type { LayoutLoad } from './$types'
 
 
 export const load: LayoutLoad = async ({ data }) => {
-  let { gtmId, scheme, vw } = data
+  let { gtmId, scheme } = data
 
-  if (typeof window !== 'undefined') {
-    if (!scheme) {
-      scheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-    }
-
-    if (!vw) {
-      vw = String(window.innerWidth)
-    }
+  if (scheme) {
+    return data
   }
 
-  return { gtmId, scheme, vw }
+  if (typeof window !== 'undefined') {
+    scheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    return data
+  }
 }

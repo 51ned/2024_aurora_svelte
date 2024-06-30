@@ -1,1 +1,1 @@
-export * from './vw-handle'
+export * from './vw-handle.svelte'
