@@ -1,9 +1,9 @@
-export async function handle({ event, resolve }) {
-  const response = await resolve(event)
+import type { Handle } from '@sveltejs/kit'
 
-  response.headers.set(
-    'Accept-CH', 'Sec-CH-Prefers-Color-Scheme, Sec-CH-Viewport-Width'
-  )
 
+export const handle: Handle = async ({ event, resolve }) => {
+	const response = await resolve(event)
+  response.headers.set('accept-ch', 'sec-ch-prefers-color-scheme, sec-ch-viewport-width')
+  
   return response
 }

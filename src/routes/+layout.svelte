@@ -14,7 +14,7 @@
 
   <Nav />
 
-  <h2>Data from headers test</h2>
+  <h2>Data from headers | window test:</h2>
 
   <ul>
     <li>color-scheme: { data.scheme ?? 'unknown' }</li>
