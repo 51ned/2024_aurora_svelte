@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import { onMount, beforeUpdate } from 'svelte'
+  import { onMount } from 'svelte'
   import { get } from 'svelte/store'
 
   import { page } from '$app/stores'
@@ -40,19 +40,19 @@
   }
 
   onMount(() => {
-    if (import.meta.env.NODE_ENV === 'production' && id?.length) {
+    if (import.meta.env.MODE === 'production' && id?.length) {
       loadGTM(id);
     }
   })
 
-  beforeUpdate(() => {
-    if (import.meta.env.NODE_ENV === 'production' && id?.length) {
+  $effect.pre(() => {
+    if (import.meta.env.MODE === 'production' && id?.length) {
       gTag.pageview(get(page).url.pathname, id);
     }
   })
 </script>
 
-{#if import.meta.env.NODE_ENV !== 'development' || id?.length}
+{#if import.meta.env.MODE !== 'development' || id?.length}
   <noscript>
     <!-- svelte-ignore a11y_missing_attribute -->
     <iframe
