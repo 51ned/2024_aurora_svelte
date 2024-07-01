@@ -40,19 +40,19 @@
   }
 
   onMount(() => {
-    if (process.env.NODE_ENV === 'production' && id?.length) {
+    if (import.meta.env.NODE_ENV === 'production' && id?.length) {
       loadGTM(id);
     }
   })
 
   beforeUpdate(() => {
-    if (process.env.NODE_ENV === 'production' && id?.length) {
+    if (import.meta.env.NODE_ENV === 'production' && id?.length) {
       gTag.pageview(get(page).url.pathname, id);
     }
   })
 </script>
 
-{#if process.env.NODE_ENV !== 'development' || id?.length}
+{#if import.meta.env.NODE_ENV !== 'development' || id?.length}
   <noscript>
     <!-- svelte-ignore a11y_missing_attribute -->
     <iframe
