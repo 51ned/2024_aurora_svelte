@@ -2,6 +2,7 @@
   import type { LayoutData } from './$types'
 
   import Nav from 'views/test-nav.svelte'
+  import GTM from 'utils/gtm.svelte';
   import { vwHandle } from 'utils/vw-handle.svelte'
   import { BREAKPOINTS } from '$lib/breakpoints'
   
@@ -31,3 +32,5 @@
     <li>XS: { vwHandle(BREAKPOINTS.XS) }</li>
   </ul>
 </main>
+
+<GTM id={data.gtmId} />
