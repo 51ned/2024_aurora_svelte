@@ -1,6 +1,6 @@
-export function vwHandle(bpWidth: number) {
+export function mediaHandle(bpWidth: number) {
   let isTargetReached = $state()
-  let mql: MediaQueryList | null
+  let mql
 
   const updateTarget = (e: MediaQueryListEvent) => {
     isTargetReached = e.matches

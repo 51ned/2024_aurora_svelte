@@ -9,7 +9,6 @@ const load: LayoutServerLoad = async ({ request }) => {
 }
 
 const prerender = true
-const ssr = true
 
 
-export { load, prerender, ssr }
+export { load, prerender }

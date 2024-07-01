@@ -1,4 +1,2 @@
-{#snippet header()}
-  <h1>Блог</h1>
-  <p>Lorem ipsum...</p>
-{/snippet}
+<h1>Блог</h1>
+<p>Lorem ipsum...</p>

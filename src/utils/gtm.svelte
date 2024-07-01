@@ -1,15 +1,15 @@
 <script lang='ts'>
-  import { onMount } from 'svelte'
+  import { onMount, afterUpdate } from 'svelte'
   import { get } from 'svelte/store'
 
   import { page } from '$app/stores'
 
   import * as gTag from 'utils/gtm-handle'
 
-  // export let gtmId: string | undefined
-  const { gtmId } = $props()
-  const scriptId = 'gtm'
+  export let gtmId: string | undefined  
 
+  const scriptId = 'gtm'
+  
   const loadGTM = (gtmId: string) => {
     if (!document.getElementById(scriptId)) {
       const gtmScript = document.createElement('script')
@@ -45,7 +45,7 @@
     }
   })
 
-  $effect.pre(() => {
+  afterUpdate(() => {
     if (import.meta.env.MODE === 'production' && gtmId?.length) {
       gTag.pageview(get(page).url.pathname, gtmId)
     }
