@@ -2,9 +2,8 @@ import type { LayoutLoad } from './$types'
 
 
 export const load: LayoutLoad = async ({ data }) => {
-  // let { gtmId, scheme, vw } = data
-  
-  if (data.scheme) {
+  console.log(data.scheme)
+  if (data.scheme !== null && data.scheme !== undefined) {
     return data
   }
 
