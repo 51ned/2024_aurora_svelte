@@ -6,13 +6,13 @@
 
   import * as gTag from 'utils/gtm-handle'
 
-  export let id: string | undefined
-
+  // export let gtmId: string | undefined
+  const { gtmId } = $props()
   const scriptId = 'gtm'
 
-  const loadGTM = (id: string) => {
+  const loadGTM = (gtmId: string) => {
     if (!document.getElementById(scriptId)) {
-      const gtmScript = document.createElement('script');
+      const gtmScript = document.createElement('script')
 
       gtmScript.async = true
       gtmScript.fetchPriority = 'low'
@@ -28,36 +28,36 @@
           j.async=true;
           j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
           f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','${id}');
+        })(window,document,'script','dataLayer','${gtmId}');
       `
 
       document.head.appendChild(gtmScript)
-      gtmScript.onload = () => gTag.pageview(get(page).url.pathname, id)
+      gtmScript.onload = () => gTag.pageview(get(page).url.pathname, gtmId)
     }
     else {
-      gTag.pageview(get(page).url.pathname, id)
+      gTag.pageview(get(page).url.pathname, gtmId)
     }
   }
 
   onMount(() => {
-    if (import.meta.env.MODE === 'production' && id?.length) {
-      loadGTM(id);
+    if (import.meta.env.MODE === 'production' && gtmId?.length) {
+      loadGTM(gtmId)
     }
   })
 
   $effect.pre(() => {
-    if (import.meta.env.MODE === 'production' && id?.length) {
-      gTag.pageview(get(page).url.pathname, id);
+    if (import.meta.env.MODE === 'production' && gtmId?.length) {
+      gTag.pageview(get(page).url.pathname, gtmId)
     }
   })
 </script>
 
-{#if import.meta.env.MODE !== 'development' || id?.length}
+{#if import.meta.env.MODE !== 'development' || gtmId?.length}
   <noscript>
     <!-- svelte-ignore a11y_missing_attribute -->
     <iframe
       height='0'
-      src={`https://www.googletagmanager.com/ns.html?id=${id}`}
+      src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
       style='display: none; visibility: hidden;'
       width='0'
     ></iframe>

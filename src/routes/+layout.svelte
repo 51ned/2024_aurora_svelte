@@ -5,7 +5,7 @@
   import GTM from 'utils/gtm.svelte'
   import { vwHandle } from 'utils/vw-handle.svelte'
   import { BREAKPOINTS } from '$lib/breakpoints'
-  
+
   export let data: LayoutData
 </script>
 
@@ -33,4 +33,4 @@
   </ul>
 </main>
 
-<GTM id={data.gtmId} />
+<GTM gtmId={data.gtmId} />
