@@ -17,7 +17,8 @@
   <h2>Data from headers test</h2>
 
   <ul>
-    <li>sec-ch-prefers-color-scheme: { data.scheme ?? 'unknown' }</li>
+    <li>color-scheme: { data.scheme ?? 'unknown' }</li>
+    <li>viewport-width: { data.vw ?? 'unknown' }</li>
   </ul>
   
   <h2>Breakpoints test:</h2>
