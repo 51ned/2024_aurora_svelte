@@ -1,7 +1,7 @@
 import type { LayoutLoad } from './$types'
 
 
-const load: LayoutLoad = ({ data }) => {
+export const load: LayoutLoad = ({ data }) => {
   if (data.scheme !== null) {
     return data
   }
@@ -13,8 +13,3 @@ const load: LayoutLoad = ({ data }) => {
     return data
   }
 }
-
-const ssr = true
-
-
-export { load, ssr }
