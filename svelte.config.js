@@ -12,7 +12,7 @@ import adapter from '@sveltejs/adapter-vercel'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 
 
-/** @type {import('@sveltejs/kit').Config} */
+/** @type { import('@sveltejs/kit').Config } */
 
 
 const config = {
@@ -26,6 +26,14 @@ const config = {
       'views/*': 'src/views/*',
       'utils/*': 'src/utils/*'
 		},
+		vite: {
+			server: {
+				headers: {
+					'Accept-CH': 'Sec-CH-Prefers-Color-Scheme, Sec-CH-Viewport-Width'
+				},
+				port: 3000
+			}
+		}
 	},
 
 	preprocess: vitePreprocess()
