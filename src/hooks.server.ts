@@ -3,7 +3,7 @@ import type { Handle } from '@sveltejs/kit'
 
 export const handle: Handle = async ({ event, resolve }) => {
   event.setHeaders({
-    'x-supa': 'dupa!'
+    'X-Kak-Ya-Zaebalsya': 'Silno-Pizdos'
   })
   
   return await resolve(event)
