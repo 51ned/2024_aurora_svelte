@@ -3,8 +3,8 @@ import type { Handle } from '@sveltejs/kit'
 
 export const handle: Handle = async ({ event, resolve }) => {
 	event.setHeaders({
-    'Accept-CH': 'Sec-CH-Prefers-Color-Scheme'
+    'accept-ch': 'sec-ch-prefers-color-scheme, sec-ch-viewport-width'
   })
 
 	return await resolve(event)
-};
+}
