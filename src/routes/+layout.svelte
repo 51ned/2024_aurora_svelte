@@ -1,7 +1,8 @@
 <script lang='ts'>
   import type { LayoutData } from './$types'
 
-  import Nav from 'views/test-nav.svelte'
+  import {Aside, Navbar, Footer} from 'views/orgs'
+
   import { mediaHandle } from 'utils/media-handle.svelte'
   import { BREAKPOINTS } from '$lib/breakpoints'
 
@@ -12,23 +13,14 @@
 <main>
   <slot />
 
-  <Nav />
-
   <h2>Data from headers | window test:</h2>
 
   <ul>
     <li>color-scheme: { data.scheme ?? 'unknown' }</li>
     <li>viewport-width: { data.vw ?? 'unknown' }</li>
   </ul>
-  
-  <h2>Breakpoints test:</h2>
-
-  <ul>
-    <li>XXL: { mediaHandle(BREAKPOINTS.XXL) }</li>
-    <li>XL: { mediaHandle(BREAKPOINTS.XL) }</li>
-    <li>L: { mediaHandle(BREAKPOINTS.L) }</li>
-    <li>M: { mediaHandle(BREAKPOINTS.M) }</li>
-    <li>S: { mediaHandle(BREAKPOINTS.S) }</li>
-    <li>XS: { mediaHandle(BREAKPOINTS.XS) }</li>
-  </ul>
 </main>
+
+<Navbar />
+<Footer/>
+<Aside />
