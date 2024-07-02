@@ -3,7 +3,7 @@ import type { LayoutServerLoad } from './$types'
 
 const load: LayoutServerLoad = async ({ request, setHeaders }) => { 
   setHeaders({
-    'accept-ch': 'sec-ch-prefers-color-scheme, sec-ch-viewport-width'
+    'X-Kak-Ya-Zaebalsya': 'Silno-Pizdos'
   }) 
 
   return {
