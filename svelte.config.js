@@ -25,14 +25,6 @@ const config = {
 			'routes/*': 'src/routes/*',
       'views/*': 'src/views/*',
       'utils/*': 'src/utils/*'
-		},
-		vite: {
-			server: {
-				headers: {
-					'Accept-CH': 'Sec-CH-Prefers-Color-Scheme, Sec-CH-Viewport-Width'
-				},
-				port: 3000
-			}
 		}
 	},
 
