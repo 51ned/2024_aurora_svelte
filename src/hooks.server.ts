@@ -2,8 +2,11 @@ import type { Handle } from '@sveltejs/kit'
 
 
 export const handle: Handle = async ({ event, resolve }) => {
-	const response = await resolve(event)
-  response.headers.set('accept-ch', 'sec-ch-prefers-color-scheme')
+	const response = await resolve(event, {
+    transformPageChunk: ({ html }) => html
+  })
+
+  response.headers.set('accept-ch', 'sec-ch-prefers-color-scheme, sec-ch-viewport-width')
   
   return response
 }
