@@ -3,9 +3,8 @@ import type { LayoutServerLoad } from './$types'
 
 const load: LayoutServerLoad = async ({ request, setHeaders }) => { 
   setHeaders({
-    'X-Kak-Ya-Zaebalsya': 'Silno-Pizdos'
-  }) 
-
+    'X-Suuka': 'Blyad'
+  })
   return {
     gtmId: import.meta.env.VITE_GTM_ID,
     scheme: request.headers.get('sec-ch-prefers-color-scheme'),
