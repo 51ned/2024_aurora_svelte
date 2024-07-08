@@ -1,6 +1,4 @@
 <script>
-// @ts-nocheck
-
   import { Button, List } from 'views/atoms'
 
   import { mediaHandle } from 'utils/media-handle.svelte'

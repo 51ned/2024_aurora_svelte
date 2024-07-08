@@ -1,12 +1,12 @@
 <script lang='ts'>
+  import { setContext } from 'svelte'
   import type { LayoutData } from './$types'
 
-  import {Aside, Navbar, Footer} from 'views/orgs'
-
-  import { mediaHandle } from 'utils/media-handle.svelte'
-  import { BREAKPOINTS } from '$lib/breakpoints'
+  import { Aside, Navbar, Footer } from 'views/orgs'
 
   export let data: LayoutData
+
+  setContext('initWidth', data.vw)
 </script>
 
 
