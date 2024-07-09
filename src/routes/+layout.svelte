@@ -1,23 +1,19 @@
 <script lang='ts'>
-  import { setContext } from 'svelte'
-  import type { LayoutData } from './$types'
-
+  import type { LayoutServerData } from './$types'
   import { Aside, Navbar, Footer } from 'views/orgs'
 
-  export let data: LayoutData
-
-  setContext('initWidth', data.vw)
+  export let data: LayoutServerData
 </script>
 
 
 <main>
   <slot />
 
-  <h2>Data from headers | window test:</h2>
+  <h2>Well...</h2>
 
   <ul>
-    <li>color-scheme: { data.scheme ?? 'unknown' }</li>
-    <li>viewport-width: { data.vw ?? 'unknown' }</li>
+    <li>scheme from hooks: {data.scheme ?? "it's not Chromium, bitches"}</li>
+    <li>vw from hooks: {data.vw ?? "it's not Chromium, bitches"}</li>
   </ul>
 </main>
 
