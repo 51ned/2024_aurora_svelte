@@ -3,6 +3,8 @@
   import { Aside, Navbar, Footer } from 'views/orgs'
 
   export let data: LayoutServerData
+  console.log(`scheme from layout.svelte: ${data.scheme}`)
+  console.log(`vw from layout.svelte: ${data.vw}`)
 </script>
 
 
