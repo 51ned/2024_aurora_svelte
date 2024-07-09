@@ -1,13 +1,13 @@
-import { sequence } from '@sveltejs/kit/hooks'
 import type { Handle } from '@sveltejs/kit'
+import { sequence } from '@sveltejs/kit/hooks'
 
 
 const setHeaders: Handle = async ({ event, resolve }) => {
   event.setHeaders({
     'accept-ch': 'sec-ch-prefers-color-scheme, sec-ch-viewport-width'
   })
-
-	return await resolve (event)
+	console.log("i'm alive!")
+	return await resolve(event)
 }
 
 const getScheme: Handle = async ({ event, resolve }) => {
