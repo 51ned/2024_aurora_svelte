@@ -1,12 +1,12 @@
-import type { RequestEvent } from '@sveltejs/kit'
+import type { RequestEvent, ServerLoadEvent } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types'
 
 
-const load: LayoutServerLoad = ({ locals }: RequestEvent) => {
+const load = (event: ServerLoadEvent) => {
   return {
-    gtmId: locals.gtmId,
-    scheme: locals.scheme,
-    vw: locals.vw
+    gtmId: event.locals.gtmId,
+    scheme: event.locals.scheme,
+    vw: event.locals.vw
   }
 }
 

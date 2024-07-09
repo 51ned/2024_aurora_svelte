@@ -45,7 +45,6 @@ const getVw: Handle = async ({ event, resolve }) => {
 
 const getGtmId: Handle = async ({ event, resolve }) => {
 	event.locals.gtmId = import.meta.env.VITE_GTM_ID
-	console.log(event.locals.gtmId)
 	return await resolve(event)
 }
 
