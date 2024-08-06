@@ -1,5 +1,5 @@
-import { sequence } from '@sveltejs/kit/hooks'
 import type { Handle } from '@sveltejs/kit'
+import { sequence } from '@sveltejs/kit/hooks'
 
 
 const MAX_AGE = 31536000 // 1 year
