@@ -1,7 +1,7 @@
 import { getContext } from 'svelte'
 
 
-export function mediaHandle(bpWidth: number) {
+export function vwHandle(bpWidth: number) {
   const initWidth: string = getContext('initWidth')
   
   let isTargetReached = $state(+initWidth >= bpWidth)

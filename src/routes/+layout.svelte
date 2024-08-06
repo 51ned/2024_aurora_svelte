@@ -1,26 +1,17 @@
 <script lang='ts'>
-  import { setContext } from 'svelte'
-  import type { LayoutData } from './$types'
+  import { GTM } from 'views/mols'
 
-  import { Aside, Navbar, Footer } from 'views/orgs'
-
-  export let data: LayoutData
-
-  setContext('initWidth', data.vw)
+  let { children } = $props()
 </script>
 
 
-<main>
-  <slot />
+{ @render children() }
 
-  <h2>Data from headers | window test:</h2>
+<ul>
+  <li><a href='/'>Главная</a></li>
+  <li><a href='/o-kompanii'>О компании</a></li>
+  <li><a href='/ekspertiza'>Экспертиза</a></li>
+  <li><a href='/uslugi-otsenki'>Оценка</a></li>
+</ul>
 
-  <ul>
-    <li>color-scheme: { data.scheme ?? 'unknown' }</li>
-    <li>viewport-width: { data.vw ?? 'unknown' }</li>
-  </ul>
-</main>
-
-<Navbar />
-<Footer/>
-<Aside />
+<GTM />

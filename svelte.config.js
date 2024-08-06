@@ -19,10 +19,10 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-      'static/*': 'static/*',
+			'routes/*': 'src/routes/*',
+			'static/*': 'static/*',
       'stores/*': 'src/stores/*',
       'styles/*': 'src/styles/*',
-			'routes/*': 'src/routes/*',
       'views/*': 'src/views/*',
       'utils/*': 'src/utils/*'
 		}
