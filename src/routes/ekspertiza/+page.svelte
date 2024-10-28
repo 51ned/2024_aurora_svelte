@@ -1,2 +1,7 @@
-<h1>Экспертиза</h1>
-<p>Lorem ipsum...</p>
+<header>
+  <h1>Экспертиза</h1>
+</header>
+
+<main>
+  <p>Lorem ipsum...</p>
+</main>

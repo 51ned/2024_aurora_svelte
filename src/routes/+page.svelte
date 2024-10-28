@@ -1,2 +1,7 @@
-<h1>Главная</h1>
-<p>Lorem ipsum...</p>
+<header>
+  <h1>Главная</h1>
+</header>
+
+<main>
+  <p>Lorem ipsum...</p>
+</main>

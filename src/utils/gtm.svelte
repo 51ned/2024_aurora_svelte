@@ -1,9 +1,20 @@
 <script lang='ts'>
+  import { page } from '$app/stores'
+
   const gtmId = import.meta.env.VITE_GTM_ID
   const scriptTagId = 'gtm'
+  const isJsEnabled = true
+
+  const trackPageView = (url: string, gtmId: string) => {
+    window.dataLayer.push({
+      event: 'pageview',
+      page: url,
+      gtmId: gtmId
+    })
+  }
 
   $effect(() => {
-    if (process.env.NODE_ENV === 'production') {
+    if (typeof window !== 'undefined') {
       if (!document.getElementById(scriptTagId)) {
         const scriptTag = document.createElement('script')
 
@@ -25,13 +36,15 @@
         `
 
         document.head.appendChild(scriptTag)
+        scriptTag.onload = () => trackPageView($page.url.pathname, gtmId)
       }
+      
+      else trackPageView($page.url.pathname, gtmId)
     }
   })
 </script>
 
-
-{#if process.env.NODE_ENV === 'production'}
+{#if !isJsEnabled}
   <noscript>
     <iframe
       height='0'

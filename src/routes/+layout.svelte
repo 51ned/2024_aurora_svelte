@@ -1,17 +1,27 @@
 <script lang='ts'>
-  import { GTM } from 'views/mols'
+  import type { Snippet } from 'svelte'
 
-  let { children } = $props()
+  import { Aside, Footer, Nav } from 'views/orgs'
+  import { GTM } from 'utils/.'
+
+  import 'styles/index.css'
+
+  interface LayoutProps {
+    children: Snippet
+  }
+
+  let { children }: LayoutProps = $props()
 </script>
 
 
 { @render children() }
 
-<ul>
-  <li><a href='/'>Главная</a></li>
-  <li><a href='/o-kompanii'>О компании</a></li>
-  <li><a href='/ekspertiza'>Экспертиза</a></li>
-  <li><a href='/uslugi-otsenki'>Оценка</a></li>
-</ul>
 
-<GTM />
+<Nav />
+<Footer />
+<Aside />
+
+
+{#if process.env.NODE_ENV === 'production'}
+  <GTM />
+{/if}

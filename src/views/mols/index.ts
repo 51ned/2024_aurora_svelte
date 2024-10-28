@@ -1,1 +1,0 @@
-export { default as GTM } from './gtm.svelte'
